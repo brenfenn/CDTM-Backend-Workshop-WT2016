@@ -27,7 +27,7 @@ app = Flask(__name__, static_url_path='')
 
 
 
-VERSION =4.0
+VERSION =5.0
 
 @app.route('/', methods=['GET'])
 def frontEnd():
@@ -82,6 +82,24 @@ def create_task(list_id):
     return jsonify(newTask.__dict__)
 
 
+@app.route('/api/lists/<string:list_id>/tasks/<string:task_id>', methods=['DELETE'])
+def delete_task(list_id,task_id):
+    # check if there is a real task to be deleted
+
+
+    if (len([l for l in myLists if l.id == list_id]) < 1)
+        json_abort(404, 'List not found')
+
+    if task_id > len(t for t in myTasks)
+        json_abort(404,"Task not found")
+
+    tasks = [t for t in myTasks if t.list == list_id and t.id == task_id]
+
+
+
+    dict_task['tasks'] = [t.__dict__ for t in myTasks if t.list == list_id and t.id !=task_id]
+
+    return jsonify(dict_task)
 
 
 
