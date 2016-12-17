@@ -13,7 +13,7 @@ from list import List
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-VERSION = 4.0
+VERSION = 6.0
 
 myLists = [
     List('Inbox', id='0'),
@@ -103,6 +103,41 @@ def remove_task(list_id, task_id):
     # 3. finally remove the task
     myTasks.remove(tasks[0])
 
+    return jsonify({'result': True})
+
+# MODIFY ROUTE
+@app.route('/api/lists/<string:list_id>/tasks/<string:task_id>', methods = ['PUT'])
+def update_task(list_id, task_id):
+     # 1. Check that list exist
+    if (len([l for l in myLists if l.id == list_id]) < 1):
+        json_abort(404, 'List not found')
+
+    # 2. Check that task exists
+        tasks = [t for t in myTasks if t.id == task_id and t.list == list_id]
+    if (len(tasks) < 1):
+        json_abort(404, 'Task not found')
+
+     tasks = [t for t in myTasks if t.id == task_id and t.list == list_id]
+
+    #4 Check title is a string
+     if (isinstance ( data.get('title')) , str ) <1
+         json_abort(404, 'title is not a string')
+    elif
+     tasks[0].title = data.get('title')
+
+    #5 Check status is a string
+    if (isinstance(data.get('status'), str)) < 1
+        json_abort(404, 'title is not a string')
+    elif
+        tasks[0].title = data.get('title')
+    #6 Check description is a string
+    #7 Check due is a string
+    #8 Check revision is true
+    #9 Update the task
+
+
+
+    updateTask = Task(title, list_id, id=str(id), status = Task.NORMAL)
     return jsonify({'result': True})
 
 if __name__ == '__main__':
