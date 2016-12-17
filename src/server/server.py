@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf8
-
-from flask import Flask
+from flask import Flask, send_file
 import sys
 
 # allow special characters (e.g. üäö ...)
@@ -15,7 +14,11 @@ sys.setdefaultencoding('utf-8')
 #   - We need this, so that the front-end works properly.
 app = Flask(__name__, static_url_path='')
 
-
+@app.route('/', methods=['GET'])
+def server_return():
+    filepath = '/Users/brendanfennessy/Documents/School/Programming/CDTMBackendWorkshop/src/server/static/index.html'
+    content = send_file(filepath)
+    return content
 
 
 if __name__ == '__main__':
