@@ -2,6 +2,9 @@
 # coding: utf8
 from flask import Flask, send_file
 import sys
+from task import Task
+from list import List
+
 
 # allow special characters (e.g. üäö ...)
 reload(sys)
@@ -17,6 +20,12 @@ app = Flask(__name__, static_url_path='')
 @app.route('/', methods=['GET'])
 def server_return():
     filepath = '/Users/brendanfennessy/Documents/School/Programming/CDTMBackendWorkshop/src/server/static/index.html'
+    content = send_file(filepath)
+    return content
+
+my_List=List(self,0,'Inbox',1)
+my_Tasks= [task()
+    filepath = '/Users/brendanfennessy/Documents/School/Programming/CDTMBackendWorkshop/src/server/list.py'
     content = send_file(filepath)
     return content
 
