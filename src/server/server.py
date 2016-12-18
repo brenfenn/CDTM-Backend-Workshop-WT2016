@@ -120,13 +120,13 @@ def update_task(list_id, task_id):
      tasks = [t for t in myTasks if t.id == task_id and t.list == list_id]
 
     #4 Check title is a string
-     if (isinstance ( data.get('title')) , str ) <1
+     if (isinstance ( data.get('title')) , str ) !=1
          json_abort(404, 'title is not a string')
     elif
      tasks[0].title = data.get('title')
 
     #5 Check status is a string
-    if (isinstance(data.get('status'), str)) < 1
+    if (isinstance(data.get('status'), str)) != 1
         json_abort(404, 'title is not a string')
     elif
         tasks[0].title = data.get('title')
