@@ -10,7 +10,8 @@ CREATE TABLE Users(
 Drop TABLE IF EXISTS COOKIES;
 CREATE TABLE COOKIES(
     id      INTEGER     PRIMARY KEY AUTOINCREMENT,
-    owner   TEXT        NOT NULL,
+    owner   INTEGER     NOT NULL,
     type    TEXT        NOT NULL DEFAULT 'Zimtstern',
-    FOREIGN KEY(owner) REFERENCES Users(name)
+    FOREIGN KEY(owner) REFERENCES Users(id) ON DELETE CASCADE
 );
+

@@ -13,7 +13,7 @@ from list import List
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-VERSION = 6.0
+VERSION = 7.0
 
 myLists = [
     List('Inbox', id='0'),
