@@ -6,3 +6,11 @@ CREATE TABLE Users(
   name        TEXT         NOT NULL UNIQUE,
   created     TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+Drop TABLE IF EXISTS COOKIES;
+CREATE TABLE COOKIES(
+    id      INTEGER     PRIMARY KEY AUTOINCREMENT,
+    owner   TEXT        NOT NULL,
+    type    TEXT        NOT NULL DEFAULT 'Zimtstern',
+    FOREIGN KEY(owner) REFERENCES Users(name)
+);
